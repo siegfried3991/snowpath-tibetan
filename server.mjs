@@ -42,7 +42,7 @@ const server=http.createServer(async(req,res)=>{
    return reply(res,200,{text:data.choices?.[0]?.message?.content||'No feedback was returned.'});
   }finally{busy=false;}
  }
- if(req.method==='GET'&&/^\/sound-(?:alphabet|vowels|row-[1-8]|letter-(?:0[1-9]|[12][0-9]|30))\.wav$/.test(p)){const data=await readFile(path.join(root,p.slice(1)));res.writeHead(200,{'Content-Type':'audio/wav','Content-Length':data.length,'Cache-Control':'public, max-age=3600','X-Content-Type-Options':'nosniff'});res.end(data);return;}
+ if(req.method==='GET'&&/^\/sound-(?:alphabet|vowels|vowel-[1-4]|row-[1-8]|letter-(?:0[1-9]|[12][0-9]|30))\.wav$/.test(p)){const data=await readFile(path.join(root,p.slice(1)));res.writeHead(200,{'Content-Type':'audio/wav','Content-Length':data.length,'Cache-Control':'public, max-age=3600','X-Content-Type-Options':'nosniff'});res.end(data);return;}
  if(req.method==='GET'&&files.has(p)){const file=files.get(p);res.writeHead(200,{'Content-Type':types[path.extname(file)],'X-Content-Type-Options':'nosniff','Cache-Control':'no-cache','Referrer-Policy':'strict-origin-when-cross-origin','Permissions-Policy':'microphone=(self)','X-Frame-Options':'DENY'});res.end(await readFile(path.join(root,file)));return;}
  reply(res,404,{error:'Not found'});
  }catch(e){if(!res.headersSent)reply(res,502,{error:e.name==='TimeoutError'?'The request timed out. Please try again.':'The studio could not complete this request.'});else res.end();}

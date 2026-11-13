@@ -18,7 +18,7 @@ const WORDS=[
 ['love','བྱམས་པ','byams pa','Loving-kindness','慈'],['compassion','སྙིང་རྗེ','snying rje','Compassion','悲'],['joy','དགའ་བ',"dga' ba",'Joy','喜'],['equanimity','བཏང་སྙོམས','btang snyoms','Equanimity','捨／平等心'],['dharma','ཆོས','chos','Dharma / Buddhist teaching','佛法'],['mind','སེམས','sems','Mind','心'],
 ['girl','བུ་མོ','bu mo','Girl / young woman','女孩／年輕女子'],['life','ཚེ','tshe','Life / lifespan','生命／壽命'],['poem','མགུར','mgur','Spiritual song / song-poem','道歌／詩歌'],['gesar','གེ་སར','ge sar','Gesar (name)','格薩爾（名字）'],['horse','རྟ','rta','Horse','馬'],['king','རྒྱལ་པོ','rgyal po','King','國王'],['story','སྒྲུང','sgrung','Story / narrative','故事／敘事']
 ].map(a=>({id:a[0],bo:a[1],wylie:a[2],en:a[3],zh:a[4]}));
-const VOWELS=[['ཀ','ka','a','Inherent a (no vowel mark)','固有 a（不加元音符號）'],['ཀི','ki','i','i vowel, written above','i 元音，寫在上方'],['ཀུ','ku','u','u vowel, written below','u 元音，寫在下方'],['ཀེ','ke','e','e vowel, written above','e 元音，寫在上方'],['ཀོ','ko','o','o vowel, written above','o 元音，寫在上方']].map((a,i)=>({id:'v'+i,bo:a[0],wylie:a[1],ipa:a[2],en:a[3],zh:a[4]}));
+const VOWELS=[['ཨ','a','a','Inherent a (no vowel mark)','固有 a（不加元音符號）'],['ཨི','i','i','i vowel, written above','i 元音，寫在上方'],['ཨུ','u','u','u vowel, written below','u 元音，寫在下方'],['ཨེ','e','e','e vowel, written above','e 元音，寫在上方'],['ཨོ','o','o','o vowel, written above','o 元音，寫在上方']].map((a,i)=>({id:'v'+i,bo:a[0],wylie:a[1],ipa:a[2],en:a[3],zh:a[4]}));
 const SOURCES=[
 {title:'Duolingo: learning other writing systems',url:'https://blog.duolingo.com/learning-other-writing-systems/',note:bi('Small groups of characters, sound–symbol associations, and dedicated reading practice.','分組學字、字音連結、專門的讀寫練習。')},
 {title:'Duolingo: spaced repetition',url:'https://blog.duolingo.com/spaced-repetition-for-learning/',note:bi('Inspiration for retrieval and returning to material over time. This app uses its own simple schedule.','參考提取練習與間隔複習理念；本程式使用自行設計的簡易排程。')},
@@ -159,3 +159,6 @@ for(const [id,arr] of Object.entries(CHUNKS))LESSONS.find(l=>l.id===id).items.fo
 
 const AUDIO_SOURCE_ID=SOURCES.length;SOURCES.push({title:'Basic Tibetan — bundled pronunciation recordings',url:'https://openbooks.lib.msu.edu/basictibetan/chapter/1-1/',note:bi('Human recordings: Jampa Khedup and Sonam Tsering, Basic Tibetan (2026), MSU Libraries, CC BY-NC 4.0. Alphabet and vowels are converted from AAC to PCM WAV; alphabet clips are split at pauses in source order. Dialect is not independently certified as native Lhasa.','真人錄音：Jampa Khedup、Sonam Tsering，Basic Tibetan（2026），MSU Libraries，CC BY-NC 4.0。字母與元音由 AAC 轉為 PCM WAV；字母按原順序於停頓處分段。未獨立認證為拉薩母語錄音。')});
 LESSONS.find(l=>l.id==='vowels').audio='sound-vowels.wav';
+
+LETTERS.forEach((x,i)=>x.sound='sound-letter-'+String(i+1).padStart(2,'0')+'.wav');
+VOWELS.forEach((x,i)=>x.sound=i===0?'sound-letter-30.wav':'sound-vowel-'+i+'.wav');
