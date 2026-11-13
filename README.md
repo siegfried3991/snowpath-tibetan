@@ -2,9 +2,11 @@
 
 A personal noncommercial Tibetan learning app with complete Traditional Chinese and English teaching interfaces. Open `index.html` through a web server, or visit the GitHub Pages deployment.
 
+The conversation and reading goal requires more than lesson completion. This release adds 19 substantial modules in spoken sentence patterns, practical interaction, and supported literary reading. Each has source examples, Chinese/English explanation, an independent task, and grammar/comprehension questions. Advanced vocabulary, sustained listening, evidentiality, broader case/verb grammar, and longer unfamiliar texts remain a continuation plan, not an implemented fluency course.
+
 ## Included
 
-- 17 short lessons, all 30 consonants, four vowel marks, syllable construction.
+- 36 lessons across six stages, all 30 consonants, four vowel marks, syllable construction.
 - Lhasa-oriented isolated-letter IPA with aspiration and tone-register distinctions; Wylie always labelled as spelling.
 - Recognition, reverse recall, syllable ordering, handwriting practice, review, local progress, XP and streaks.
 - Cultural readings on Tsangyang Gyatso, the Gesar oral epic, and Buddhist vocabulary.
@@ -21,7 +23,7 @@ The server uses `gpt-audio-1.5`, overridable via `OPENAI_AUDIO_MODEL`. Text-only
 
 ## Content limits
 
-This prototype has not been reviewed by a qualified Lhasa Tibetan teacher. Letter IPA is simplified and not a full model of connected speech. Linked audio is explicitly identified as Diaspora Standard Tibetan, not verified native-Lhasa audio. The source links remain available when an external audio host fails. No fabricated native-speaker audio or accent scores are provided.
+This prototype has not been reviewed by a qualified Lhasa Tibetan teacher. Letter IPA is simplified and not a full model of connected speech. Forty bundled PCM WAV recordings cover 30 individual consonants, eight rows, the complete alphabet, and four vowels. Human source recordings are from MSU Basic Tibetan (CC BY-NC 4.0), with dialect not independently verified as native Lhasa. See AUDIO-LICENSE.md. Playback loads bundled files from the same site, using a PCM Web Audio player plus a system-player/download fallback. It no longer relies on an external media host. No fabricated native-speaker audio or accent scores are provided.
 
 Historical Tibetan poetry is distinguished from original lesson glosses. The Gesar reading is an original teaching summary, not an alleged excerpt. There is no religious participation requirement. Source acknowledgements are embedded in the app. New study prose is original; historical and third-party materials retain their own rights.
 
